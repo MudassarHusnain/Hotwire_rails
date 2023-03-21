@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Products</h1>
+<div id="products">
+  <%= turbo_stream_from :products %>
+<!--  <div id="<%#= "#{dom_id(@products)}" %>">-->
+    <div id="<%= "#dom_id_products" %>">
+
+    <%= render @products.order(created_at: :desc)%>
+
+
+  </div>
+  <%# @products.each do |product| %>
+    <%#= render product %>
+    <%#= puts "#{product.id}" %>
+    <%# current_product(product.id) %>
+<!--    <p>-->
+<!--    </p>-->
+  <%# end %>
+</div>
+
+<%= link_to "New product", new_product_path %>

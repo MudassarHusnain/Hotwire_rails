@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @product %>
+<div>
+  <%= link_to "Edit this product", edit_product_path(@product) %> |
+  <%= link_to "Back to products", products_path %>
+  <%#session[:prod_id]=@product.id %>
+  <%= button_to "Destroy this product", @product, method: :delete %>
+  <h1>Comments</h1>
+  <%#= render partial: "comments/form", locals: { comment: Comment.new,product_id:@product.id } %>
+  <%= turbo_stream_from @product, :comments %>
+
+  <div id="<%= "#{dom_id(@product)}_comments" %>">
+  <%= render @product.comments.order(created_at: :desc) %>
+</div>
+
+  <%#@product.comments.each do|comment| %>
+    <%# @user=User.find_by(id: comment.user_id) %>
+<!--    <p><%#=comment.content %><span><%#=@user.email%></span></p>-->
+  <%# end %>
+  <%= render 'comments/form',comment:@product.comments.new %>
+</div>

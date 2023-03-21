@@ -1,0 +1,4 @@
+<div id="<%= dom_id(comment) %>">
+<% @user=User.find_by(id: comment.user_id) %>
+    <p><%=comment.content %><span><%=@user.email%></span></p>
+</div>

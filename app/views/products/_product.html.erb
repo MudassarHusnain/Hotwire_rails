@@ -1,0 +1,13 @@
+<div id="<%= dom_id(product) %>">
+<!--  <div id="<%#= dom_id(comment) %>">-->
+  <p>
+    <strong>Name:</strong>
+    <%= product.name %>
+  </p>
+  <%#current_product(product.id) %>
+  <p>
+    <strong>Price:</strong>
+    <%= product.price %>
+  </p>
+  <%= link_to "Show this product", product %>
+</div>
